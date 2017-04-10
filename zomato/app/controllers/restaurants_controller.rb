@@ -8,7 +8,7 @@ class RestaurantsController < ApplicationController
     	flash[:notice]="Please select atleast one"
     	redirect_to :root
     else
-    	flash[:notice]="Dine in anyone below"	
+    	flash[:notice]="Dine in anyone below"
   	end
   	
 		if @region.present?&&@cus.present?
