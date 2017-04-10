@@ -1,0 +1,4 @@
+%h2= "We found"
+- @rest.each do |rest|
+	=link_to rest.name,rest
+	%br/
