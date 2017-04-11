@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'json'
-data= ActiveSupport::JSON.decode(File.read('db/seeds/dwarka.json'))
+data= ActiveSupport::JSON.decode(File.read('db/seeds/restaurants.json'))
 data.each do |line|
 	new_record = Restaurant.new(JSON.parse(line.to_json)) 
 	new_record.save
