@@ -1,0 +1,6 @@
+<%= simple_form_for @rev, html: {multipart: true} do |f|%>
+	<%= f.input :comments%>
+	<%= f.input :rating %>
+	<%= f.input :restaurant_id,:as=>:hidden,:input_html=> {:value=>@restid} %>
+	<%= f.button :submit %>
+<% end %>

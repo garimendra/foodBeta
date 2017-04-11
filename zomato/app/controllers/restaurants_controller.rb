@@ -45,7 +45,7 @@ class RestaurantsController < ApplicationController
 	private
 
 	def rest_params
-		params.require(:Restaurant).permit(:name,:accomodation,:timings,:contactnum,:region,:address,:cost,:cuisine)
+		params.require(:Restaurant).permit(:name,:accomodation,:timings,:contactnum,:region,:address,:cost,:cuisine,reviews_attributes: [:comments,:rating])
 	end
 
 	def find_rest

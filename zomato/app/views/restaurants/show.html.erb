@@ -1,9 +1,16 @@
 <h2 align="middle">
+<div>
+	<h2>
 	<%= @rest.name %>
-</h2>
+	</h2>
+	<button align=right>
+		<%= link_to "Review Us",revadd_path %>
+	</button>
+		
+</div>
 <ul class="nav nav-tabs nav-justified">
   <li role="presentation"><a href="#">Overview</a></li>
  	<li role="presentation"><a href="#">Menu</a></li>
  	<li role="presentation"><a href="#">Order Online</a></li>
- 	<li role="presentation"><a href="#">Reviews</a></li>
+ 	<li role="presentation"><%= link_to "Reviews",restrev_path %></li>
 </ul>
