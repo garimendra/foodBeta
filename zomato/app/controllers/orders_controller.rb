@@ -36,16 +36,18 @@ class OrdersController < ApplicationController
 		render 'userorder'
 	end
 
+=begin
 	def restorder
 		@order = Restaurant.find(params[:id]).orders
 		render 'restorder'
 	end
+=end
 
 
 	private
 
 	def order_params
-		params.require(:Order).permit(:name,:contact,:address,:cost,:orderDetails)
+		params.require(:Order).permit(:name,:contact,:address,:cost,:orderDetails, :restaurant_id)
 	end
 
 	def find_order
