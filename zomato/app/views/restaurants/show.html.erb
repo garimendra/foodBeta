@@ -11,7 +11,7 @@
   <li role="presentation" id="overview"><a>Overview</a></li>
  	<li role="presentation" id="menu_toggler"><a>Menu</a></li>
  	<li role="presentation" id="order_online"><a>Order Online</a></li>
- 	<li role="presentation" id="reviews"><a>Reviews</a></li>
+ 	<li role="presentation" id="reviews_button"><%= link_to "Reviews",restrev_path %></li>
 </ul>
 <div align="middle" id="menu_table" style="display: none;">
 	<table style="margin-top:20px">
@@ -22,16 +22,68 @@
   	</tr>
 	<% @menu.each do |menu| %>
 		<tr>
-			<td style="padding: 10px">
+			<td >
 				<%= menu.name %>	
 			</td>
-			<td style="padding: 10px">
+			<td >
 				<%= menu.price %>	
 			</td>
-			<td style="padding: 10px" class="" ="category">
+			<td class="" ="category">
 				<%= menu.category %>	
 			</td>
 		</tr>
 	<%end%>
+	</table>
+</div>
+<div align="middle" id="overview_box" style="display: none;">
+	<table>
+		<tr>
+			<td>
+			Number Of Tables
+			</td>
+			<td>
+			<%= @current_rest.accomodation %>
+			</td>
+		</tr>
+		<tr>	
+			<td>
+			Average Cost For Two
+			</td>
+			<td>
+			<%= @current_rest.cost %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Timings
+			</td>
+			<td>
+			<%=@current_rest.timings%>
+			</td>
+		</tr>
+		<tr>	
+			<td>
+			Cuisine
+			</td>
+			<td>
+			<%=@current_rest.cuisine%>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Contact Number
+			</td>
+			<td>
+			<%=@current_rest.contactnum%>
+			</td>
+		</tr>
+		<tr>	
+			<td>
+			Address
+			</td>
+			<td>
+			<%=@current_rest.address%>
+			</td>
+		</tr>
 	</table>
 </div>

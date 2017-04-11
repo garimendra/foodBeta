@@ -7,16 +7,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  <body>
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, class: "alert alert-info" %>
-    <% end %>
+  <body background="temp2.jpg" style="background-size: cover;background-repeat: no-repeat;"  >
     <%= render partial:"shared/navbar" %>
     <%= yield %>
   </body>
   <script>
   $("#menu_toggler").on("click", function()
   {
+    $("#overview_box").hide();
+    $("#reviews").hide();
     $("#menu_table").show();
     var cells=document.getElementsByTagName("td");
     for(var i=0;i<cells.length;i++)
@@ -37,14 +36,20 @@
   $("#order_online").on("click", function()
   {
     $("#menu_table").hide();
+    $("#overview_box").hide();
+    $("#reviews").hide();
   });
   $("#overview").on("click", function()
   {
     $("#menu_table").hide();
+    $("#reviews").hide();
+    $("#overview_box").show();
   });
-  $("#reviews").on("click", function()
+  $("#reviews_button").on("click", function()
   {
+    $("#overview_box").hide();
     $("#menu_table").hide();
+    $("#reviews").show();
   });
   </script>
 </html>

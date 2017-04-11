@@ -1,15 +1,29 @@
+<div align="middle"style="color:white;">
+%h1= "Welcome To Food.net!"
+</div>
 <div align="middle">
-%h1= "Welcome to food.net!"
+<h3>
 = form_tag(restaurants_path, :method=>'get') do
 	%br/
 	%br/
-	= label_tag :area_sel,"Region:"
+	<div style="color:white;">
+	= label_tag :area_sel,"Region"
+	</div>
+	<div>
 	= select_tag :area_sel,options_for_select(@region),{ :prompt => 'Select an Area'}
+	</div>
 	%br/
 	%br/
-	= label_tag :cus_sel,"Cuisines:"
+	<div style="color:white;">
+	= label_tag :cus_sel,"Cuisines"
+	</div>
+	<div>
 	= select_tag :cus_sel,options_for_select(@cus),{ :prompt => 'Select a Cuisine'}
 	%br/
 	%br/
+	</div>
+	<div style="color:green;">
 	= submit_tag "GO",class: "form_submit"
+	</div>
+</h3>	
 </div>

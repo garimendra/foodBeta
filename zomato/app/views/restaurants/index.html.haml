@@ -1,6 +1,14 @@
 <div align="middle">
-%h2= "We Found"
+<div style="color:white;display:inline;">
+%h2= "* Select One *"
+
+<table>
 - @rest.each do |rest|
+	<tr>
+	<td>
 	=link_to rest.name,rest
-	%br/
-<div>
+	</td>
+	</tr>
+</table>		
+</div>
+</div>

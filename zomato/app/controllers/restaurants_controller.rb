@@ -23,6 +23,8 @@ class RestaurantsController < ApplicationController
 	def show
 		@cus=Restaurant.find(params[:id]).cuisine
 		@menu=Menu.where(cuisine:@cus)
+		@current_rest=Restaurant.find(params[:id])
+		@rest_id=params[:id]
 	end
 
 	def edit

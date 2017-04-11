@@ -17,5 +17,12 @@
 @import "bootstrap";
 
 table, th, td {
-    border: 2px solid black;
+	margin-top:20px;
+    border: 2px solid white;
+}
+table{
+	background-color:#FFF8DC;
+}
+td{
+	padding: 10px;
 }
