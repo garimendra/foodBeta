@@ -7,12 +7,14 @@
 	</button>
 		
 </div>
-<ul class="nav nav-tabs nav-justified">
-  <li role="presentation" id="overview"><a>Overview</a></li>
+<div class="bar">
+<ul class="nav nav-tabs nav-justified" >
+  <li role="presentation" id="overview" class="clicked"><a>Overview</a></li>
  	<li role="presentation" id="menu_toggler"><a>Menu</a></li>
  	<li role="presentation" id="order_online"><a>Order Online</a></li>
  	<li role="presentation" id="reviews_button"><%= link_to "Reviews",restrev_path %></li>
 </ul>
+</div>
 <div align="middle" id="menu_table" style="display: none;">
 	<table style="margin-top:20px">
 	<tr>
@@ -35,7 +37,7 @@
 	<%end%>
 	</table>
 </div>
-<div align="middle" id="overview_box" style="display: none;">
+<div align="middle" id="overview_box" style="display: block;">
 	<table>
 		<tr>
 			<td>

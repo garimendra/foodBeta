@@ -7,7 +7,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  <body background="temp2.jpg" style="background-size: cover;background-repeat: no-repeat;"  >
+  <body>
     <%= render partial:"shared/navbar" %>
     <%= yield %>
   </body>
@@ -17,6 +17,10 @@
     $("#overview_box").hide();
     $("#reviews").hide();
     $("#menu_table").show();
+    $("#overview").removeClass('clicked');
+    $("#reviews_button").removeClass('clicked');
+    $("#menu_toggler").addClass('clicked');
+    $("#order_online").removeClass('clicked');
     var cells=document.getElementsByTagName("td");
     for(var i=0;i<cells.length;i++)
     {
@@ -38,18 +42,30 @@
     $("#menu_table").hide();
     $("#overview_box").hide();
     $("#reviews").hide();
+    $("#menu_toggler").removeClass('clicked');
+    $("#overview").removeClass('clicked');
+    $("#reviews_button").removeClass('clicked');
+    $("#order_online").addClass('clicked');
   });
   $("#overview").on("click", function()
   {
     $("#menu_table").hide();
     $("#reviews").hide();
     $("#overview_box").show();
+    $("#menu_toggler").removeClass('clicked');
+    $("#overview").addClass('clicked');
+    $("#reviews").removeClass('clicked');
+    $("#order_online").removeClass('clicked');
   });
   $("#reviews_button").on("click", function()
   {
     $("#overview_box").hide();
     $("#menu_table").hide();
     $("#reviews").show();
+    $("#menu_toggler").removeClass('clicked');
+    $("#overview").removeClass('clicked');
+    $("#reviews_button").addClass('clicked');
+    $("#order_online").removeClass('clicked');
   });
   </script>
 </html>
