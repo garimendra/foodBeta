@@ -5,7 +5,6 @@ class CreateMenus < ActiveRecord::Migration[5.0]
       t.string :cuisine
       t.integer :price
       t.string :type
-
       t.timestamps
     end
   end
