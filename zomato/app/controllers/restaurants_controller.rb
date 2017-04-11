@@ -5,10 +5,10 @@ class RestaurantsController < ApplicationController
 		@cus=params[:cus_sel]
 		@region=params[:area_sel]
 		if (!@cus.present?&&!@region.present?)
-    	flash[:notice]="Please select atleast one"
+    	flash.now[:notice]="Please select atleast one"
     	redirect_to :root
     else
-    	flash[:notice]="Dine in anyone below"
+    	flash.now[:notice]="Dine in anyone below"
   	end
   	
 		if @region.present?&&@cus.present?
