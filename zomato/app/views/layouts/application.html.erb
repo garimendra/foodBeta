@@ -3,13 +3,48 @@
   <head>
     <title>Zomato</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <body>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert alert-info" %>
+    <% end %>
     <%= render partial:"shared/navbar" %>
     <%= yield %>
   </body>
+  <script>
+  $("#menu_toggler").on("click", function()
+  {
+    $("#menu_table").show();
+    var cells=document.getElementsByTagName("td");
+    for(var i=0;i<cells.length;i++)
+    {
+      var temp=cells[i].innerHTML;
+      temp=temp.toString();
+      temp=temp.trim();
+      if(temp=="veg")
+      {
+        cells[i].setAttribute("style", "color: green;padding: 10px;");
+      }
+      if(temp=="non-veg")
+      {
+         cells[i].setAttribute("style", "color: red;padding: 10px;");
+      }
+    }
+  });
+  $("#order_online").on("click", function()
+  {
+    $("#menu_table").hide();
+  });
+  $("#overview").on("click", function()
+  {
+    $("#menu_table").hide();
+  });
+  $("#reviews").on("click", function()
+  {
+    $("#menu_table").hide();
+  });
+  </script>
 </html>

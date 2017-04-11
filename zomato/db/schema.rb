@@ -33,8 +33,6 @@ ActiveRecord::Schema.define(version: 20170411112733) do
     t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
   end
 
-ActiveRecord::Schema.define(version: 20170411094851) do
-
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
     t.integer  "accomodation"
