@@ -53,7 +53,7 @@ class OrdersController < ApplicationController
 	private
 
 	def order_params
-		params.permit(:address,:restaurant_id,:name,:contact)
+		params.permit(:address,:restaurant_id,:name,:contact,:cost,:orderDeatils)
 	end
 
 	def find_order

@@ -1,6 +1,8 @@
 <h2> Place a new Order </h2>
 <% @menu.inspect %>
 <%= form_tag @order, method: "post" do %>
+	<%= hidden_field_tag :cost %>
+	<%= hidden_field_tag :orderDeatils %>
 	<%= hidden_field_tag :restaurant_id,@rest.id %>
 	<br>
 	<%= label_tag "Enter your name" %>
