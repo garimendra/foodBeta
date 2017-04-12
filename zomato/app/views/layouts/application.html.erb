@@ -6,7 +6,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <body>
     <%= render partial:"shared/navbar" %>
     <%= yield %>
@@ -169,5 +169,24 @@
     $(temp).removeClass('star-five2');
     $(temp).addClass('star-five');
   }
+  $("#order_placer").hover(function()
+  {
+    var dish_quan=$(".dish_oquan");
+    var dish_cost=$(".dish_oprice");
+    var dish_list=$(".dish_oname");
+    var fcost=0;
+    var order="";
+    for(var i=0;i<10;i++)
+    {
+      fcost=fcost+(parseInt(dish_cost[i].innerHTML)*parseInt(dish_quan[i].value));
+      if(parseInt(dish_quan[i].value))
+      {
+        var temp=dish_list[i].innerHTML.toString().trim();
+        order=order+temp+" - "+parseInt(dish_quan[i].value).toString()+"\n";
+      }
+    }
+    $("#cost").val(fcost);
+    $("#orderDeatils").val(order);
+  }); 
   </script>
 </html>

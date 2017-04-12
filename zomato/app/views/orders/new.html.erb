@@ -1,28 +1,60 @@
-<h2> Place a new Order </h2>
+<div align="middle">
+<h2 style="color: white;"> PLACE A NEW ORDER </h2>
 <% @menu.inspect %>
 <%= form_tag @order, method: "post" do %>
+	<div style="display: none;">
 	<%= number_field_tag :cost %>
 	<%= text_field_tag :orderDeatils %>
 	<%= hidden_field_tag :restaurant_id,@rest.id %>
-	<br>
-	<%= label_tag "Enter your name" %>
-	<%= text_field_tag :name %>
-	<br>
-	<%= label_tag "Enter your address" %>
-	<%= text_field_tag :address %>
-	<br>
-	<%= label_tag "Enter your contact number" %>
-	<%= number_field_tag :contact %>
-	<br>
-	<br>
-	<%= label_tag "Select from the menu below" %>
-	<br>
-	<br>
+	</div>
+<table align="middle">
+	<tr >
+		<td >
+		<%= "Enter your name" %>
+		</td>
+		<td>
+		<%= text_field_tag :name %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<%= "Enter your address" %>
+		</td>
+		<td>
+		<%= text_field_tag :address %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<%= "Enter your contact number" %>
+		</td>
+		<td>
+		<%= number_field_tag :contact %>
+		</td>
+	</tr>
+</table>
+<table align="middle">
+	<tr>
+		<th style="padding: 10px">Dish</th>
+		<th style="padding: 10px">Price</th>
+		<th style="padding: 10px">Quantity</th>
+	</tr>
 	<% @menu.each do |menu| %>
- 		<%= label_tag menu.name %>
-		<%= check_box_tag menu.name %>
-		<br>
+		<tr >
+			<td class="dish_oname">
+ 			<%= menu.name %>
+ 			</td>
+ 			<td class="dish_oprice">
+ 			<%= menu.price %>
+ 			</td>
+ 			<td>
+			<input type="number" class="dish_oquan" value="0">
+			</td>
+		</tr>
 	<%end%>
-	<%= submit_tag "Save",class: "form-submit"%>
-	<br>
+ </table>	
+ 	<div style="padding: 20px" id="order_placer" style="display:inline-block;">
+	<%= submit_tag "Place Order",class: "form-submit"%>
+	</div>
  <%end%>
+ </div>
