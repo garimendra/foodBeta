@@ -1,1 +1,17 @@
-<h2>USER ORDERS</h2>	
+<h2>YOUR PAST ORDERS</h2>	
+<% @fin.each do |ord,res| %>
+	<h3>Delivery address </h3>
+	<%= ord.address %>
+	<br>
+	<h3>Restaurant Name</h3>
+	<%= res %>
+	<br>
+	<h3>Your order</h3>
+	<%= ord.orderDeatils %>
+	<br>
+	<h3>Net Cost</h3>
+	<%= ord.cost %>
+	<br>
+	<br>
+<% end %>
+<%= link_to "<h3><font color='black'>Back</font></h3>".html_safe,root_path %>

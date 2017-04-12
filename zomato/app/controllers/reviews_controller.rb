@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
 	end
 
 	def show
+		redirect_to :controller => 'restaurants',:action=> 'show',:id=>params[:id]
 	end
 
 	def new
@@ -32,13 +33,23 @@ class ReviewsController < ApplicationController
 	end
 
 	def userrev
+		@reqrests ||=[]
 		@rev=current_user.reviews;
+		@rev.each do |rev|
+			(@reqrests ||=[]) << Restaurant.find(rev.restaurant_id).name
+		end
+		@fin=@rev.zip(@reqrests)
 		render 'userrev'
 	end
 
 	def restrev
 		@rest=Restaurant.find(params[:id])
 		@rev=@rest.reviews
+		@requser ||=[]
+		@rev.each do |rev|
+			(@requser ||=[]) << User.find(rev.user_id).email
+		end
+		@fin=@rev.zip(@requser)
 		render 'restrev'
 	end
 

@@ -1,1 +1,12 @@
-<h2>"FUCK YEAH: usr reviews"</h2>
+<h2>Your Reviews</h2>
+<br>
+<% @fin.each do |rev,res| %>
+	<%= rev.comments %>
+	<br>
+	<%= rev.rating %>
+	<br>
+	<%= res %>
+	<br>
+	<br>
+<%end%>
+<%= link_to "<h3><font color='black'>Back</font></h3>".html_safe,root_path %>

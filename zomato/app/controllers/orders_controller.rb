@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
 	def new
 		@order = current_user.orders.build
 		@rest = Restaurant.find(params[:id])
+		@restid=Restaurant.find(params[:id]).id
 		@menu = Menu.where(cuisine: @rest.cuisine)
 	end
 
@@ -23,7 +24,8 @@ class OrdersController < ApplicationController
 		@order= current_user.orders.build(order_params)
 		@order.user_id=current_user.id
 		if @order.save
-			redirect_to @order, notice: "Thank you for placing your order"
+			redirect_to :controller => 'restaurants',:action=> 'show',:id=>params[:restaurant_id]
+			flash[:success]="Thank you for placing your order"
 		else
 			render 'new'
 		end
@@ -34,6 +36,11 @@ class OrdersController < ApplicationController
 
 	def userorder
 		@order = current_user.orders
+		@reqrests ||=[]
+		@order.each do |ord|
+			(@reqrests ||=[]) << Restaurant.find(ord.restaurant_id).name
+		end
+		@fin=@order.zip(@reqrests)
 		render 'userorder'
 	end
 

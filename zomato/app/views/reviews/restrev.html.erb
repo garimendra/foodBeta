@@ -1,2 +1,14 @@
-<h2>FUcker its rest rev</h2>
-<%= @rest.name %>
+<h2><%= @rest.name %> </h2>
+<br>
+<br>
+<% @fin.each do |rev,user| %>
+	<%=user %>
+	<h3>wrote </h3>
+	<br>
+	<%=rev.comments %>
+	<br>
+	<h3>rated </h3>
+	<%=rev.rating %>
+	<br>
+	<br>
+<%end%>
