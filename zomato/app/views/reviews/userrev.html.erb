@@ -3,6 +3,7 @@
 <h2>Your Reviews</h2>
 </div>
 <br>
+<div style="overflow:scroll; height:500px;width:auto;display:inline-block;padding: 20px;">
 <% @fin.each do |rev,res| %>
 <table>
 	<tr>
@@ -31,7 +32,7 @@
 	</tr>
 </table>	
 <%end%>
-<div>
-<%= link_to "<h3><font color='black'>Back</font></h3>".html_safe,root_path %>
 </div>
+<div align="middle">
+<%= link_to "<h3><font color='black'>Back</font></h3>".html_safe,root_path %>
 </div>

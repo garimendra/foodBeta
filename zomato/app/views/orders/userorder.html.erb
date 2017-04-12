@@ -1,5 +1,6 @@
 <div align="middle">
 <h2 style="color: white;">YOUR PAST ORDERS</h2>
+<div style="overflow:scroll; height:500px;width:auto;display:inline-block;padding: 20px;">
 <% @fin.each do |ord,res| %>
 <table>
 <tr>
@@ -36,5 +37,7 @@
 </tr>
 </table>
 <% end %>
+</div>
+<div align="middle">
 <%= link_to "<h3><font color='black'>Back</font></h3>".html_safe,root_path %>
 </div>

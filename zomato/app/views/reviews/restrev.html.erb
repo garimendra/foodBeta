@@ -1,15 +1,41 @@
+<div style="color: white;" align="middle">
 <h2><%= @rest.name %> </h2>
+</div>
+<div align="middle">
+<div style="overflow:scroll; height:500px;width:auto;display:inline-block;padding: 20px;">
 <br>
 <br>
 <% @fin.each do |rev,user| %>
-	<%=user %>
-	<h3>wrote </h3>
-	<br>
-	<%=rev.comments %>
-	<br>
-	<h3>rated </h3>
-	<%=rev.rating %>
-	<br>
-	<br>
+<table>
+<tr>
+	<td>
+		User
+	</td>
+	<td>
+		<%=user %>
+	</td>
+</tr>
+<tr>
+	<td>
+		Ratings
+	</td>
+	<td>
+		<%=rev.rating %>
+	</td>
+</tr>
+<tr>
+	<td>
+		Comments
+	</td>
+	<td>
+		<%=rev.comments %>
+	</td>
+</tr>		
 <%end%>
+</table>
+</div>
+</div>
+
+<div align="middle">
 <%= link_to "<h3><font color='black'>Back</font></h3>".html_safe,:controller => 'restaurants',:action=> 'show',:id=>@rest.id %>
+</div>
