@@ -30,9 +30,17 @@
 		<%= rev.comments %>
 		</td>
 	</tr>
+	<tr style="text-align: center;">
+	<td>
+	<%= link_to "<h5><font color='red'>Delete</font></h5>".html_safe, review_path(rev.id),method: :delete,data: {confirm: "Are you really sure?" } %>
+	</td>
+	<td>
+	<%= link_to "<h5><font color='blue'>Edit</font></h5>".html_safe, edit_review_path(rev.id),method: :delete,data: {confirm: "Are you really sure?" } %>	
+	</td>
+	</tr>
 </table>
-<%= link_to "<h4><font color='black'>Delete</font></h4>".html_safe, review_path(rev.id),method: :delete,data: {confirm: "Are you really sure?" } %>
-<%= link_to "<h4><font color='black'>Edit</font></h4>".html_safe, edit_review_path(rev.id),method: :delete,data: {confirm: "Are you really sure?" } %>	
+
+
 <%end%>
 </div>
 <div align="middle">

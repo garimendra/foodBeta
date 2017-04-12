@@ -35,9 +35,13 @@
 	<%= ord.cost %>
 	</td>
 </tr>
+<tr>
+	<td colspan=2 style="text-align: center;">
+		<%= link_to "<h5><font color='Red'>Delete</font></h5>".html_safe, order_path(ord.id),method: :delete,data: {confirm: "Are you really sure?" } %>
+	</td>
+</tr>
 </table>
 <%= ord.inspect %>
-<%= link_to "<h4><font color='black'>Delete</font></h4>".html_safe, order_path(ord.id),method: :delete,data: {confirm: "Are you really sure?" } %>
 <% end %>
 </div>
 <div align="middle">
