@@ -1,6 +1,23 @@
 <%= simple_form_for @rev, html: {multipart: true} do |f|%>
+	<div style="color: white;">
 	<%= f.input :comments%>
-	<%= f.input :rating %>
+	</div>
+	<div style="color: white;margin-bottom: 10px">
+	<b>Ratings:</b>
+	</div>
+	<div style="margin-bottom: 10px">
+	<div class="star-five" style="display:inline-block;" id="star1">
+	</div>
+	<div class="star-five" style="display:inline-block;" id="star2">
+	</div>
+	<div class="star-five" style="display:inline-block;" id="star3">
+	</div>
+	<div class="star-five" style="display:inline-block;" id="star4">
+	</div>
+	<div class="star-five" style="display:inline-block;" id="star5">
+	</div>
+	</div>
+	<%= f.input :rating,:as=>:hidden %>
 	<%= f.input :restaurant_id,:as=>:hidden,:input_html=> {:value=>@restid} %>
 	<%= f.button :submit %>
 <% end %>
