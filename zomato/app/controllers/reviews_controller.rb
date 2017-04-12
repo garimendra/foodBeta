@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
 	end
 
 	def show
-		redirect_to :controller => 'restaurants',:action=> 'show',:id=>params[:id]
+		redirect_to :controller => 'restaurants',:action=> 'show',:id=>session[:temp]
 	end
 
 	def new
@@ -16,6 +16,7 @@ class ReviewsController < ApplicationController
 	def create
 		@rev= current_user.reviews.build(rev_params)
 		@rev.user_id=current_user.id
+		session[:temp]=@rev.restaurant_id
 		if @rev.save
 			redirect_to @rev, notice: "Thank you for your reviews"
 		else
