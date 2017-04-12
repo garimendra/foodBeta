@@ -9,7 +9,8 @@ class OrdersController < ApplicationController
 
 	def new
 		@order = current_user.orders.build
-		@orderid = params[:id]
+		@rest = Restaurant.find(params[:id])
+		@menu = Menu.where(cuisine: @rest.cuisine)
 	end
 
 	def edit 
@@ -19,7 +20,7 @@ class OrdersController < ApplicationController
 	end
 
 	def create
-		@order= current_user.orders.build(rev_params)
+		@order= current_user.orders.build(order_params)
 		@order.user_id=current_user.id
 		if @order.save
 			redirect_to @order, notice: "Thank you for placing your order"
