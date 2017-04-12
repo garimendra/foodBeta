@@ -22,11 +22,6 @@ class OrdersController < ApplicationController
 	def create
 		@order= current_user.orders.build(order_params)
 		@order.user_id=current_user.id
-=begin
-	Here fill in these values by calculating from the form at present these will be nill in db if you create any order now
-		@order.cost=
-		@order.orderDeatils=
-=end
 		if @order.save
 			redirect_to @order, notice: "Thank you for placing your order"
 		else
