@@ -182,7 +182,7 @@
       if(parseInt(dish_quan[i].value))
       {
         var temp=dish_list[i].innerHTML.toString().trim();
-        order=order+temp+" - "+parseInt(dish_quan[i].value).toString()+"\n";
+        order=order+temp+" - "+parseInt(dish_quan[i].value).toString()+" | ";
       }
     }
     $("#cost").val(fcost);

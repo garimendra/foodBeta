@@ -1,17 +1,40 @@
-<h2>YOUR PAST ORDERS</h2>	
+<div align="middle">
+<h2 style="color: white;">YOUR PAST ORDERS</h2>
 <% @fin.each do |ord,res| %>
-	<h3>Delivery address </h3>
-	<%= ord.address %>
-	<br>
-	<h3>Restaurant Name</h3>
+<table>
+<tr>
+	<td>
+		Delivery Address
+	</td>
+	<td>
+		<%= ord.address %>
+	</td>
+</tr>
+<tr>	
+	<td>
+	Restaurant Name
+	</td>
+	<td>
 	<%= res %>
-	<br>
-	<h3>Your order</h3>
+	</td>
+</tr>
+<tr>	
+	<td>
+	Order Details
+	</td>
+	<td >
 	<%= ord.orderDeatils %>
-	<br>
-	<h3>Net Cost</h3>
+	</td>
+</tr>	
+<tr>
+	<td>
+	Net Cost
+	</td>
+	<td>
 	<%= ord.cost %>
-	<br>
-	<br>
+	</td>
+</tr>
+</table>
 <% end %>
 <%= link_to "<h3><font color='black'>Back</font></h3>".html_safe,root_path %>
+</div>
