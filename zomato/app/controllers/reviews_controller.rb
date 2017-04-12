@@ -31,6 +31,7 @@ class ReviewsController < ApplicationController
 	end
 
 	def destroy
+		
 	end
 
 	def userrev

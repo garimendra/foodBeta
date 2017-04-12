@@ -32,6 +32,8 @@ class OrdersController < ApplicationController
 	end
 
 	def destroy
+		@order.destroy
+		redirect_to user_orders_path
 	end
 
 	def userorder

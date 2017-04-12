@@ -30,7 +30,9 @@
 		<%= rev.comments %>
 		</td>
 	</tr>
-</table>	
+</table>
+<%= link_to "<h4><font color='black'>Delete</font></h4>".html_safe, review_path(rev.id),method: :delete,data: {confirm: "Are you really sure?" } %>
+<%= link_to "<h4><font color='black'>Edit</font></h4>".html_safe, edit_review_path(rev.id),method: :delete,data: {confirm: "Are you really sure?" } %>	
 <%end%>
 </div>
 <div align="middle">

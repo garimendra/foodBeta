@@ -36,6 +36,8 @@
 	</td>
 </tr>
 </table>
+<%= ord.inspect %>
+<%= link_to "<h4><font color='black'>Delete</font></h4>".html_safe, order_path(ord.id),method: :delete,data: {confirm: "Are you really sure?" } %>
 <% end %>
 </div>
 <div align="middle">
