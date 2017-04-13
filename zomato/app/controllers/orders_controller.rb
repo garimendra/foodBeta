@@ -32,7 +32,8 @@ class OrdersController < ApplicationController
 	end
 
 	def destroy
-		@order.destroy
+		@ords=Order.find(params[:id])
+		@ords.destroy
 		redirect_to user_orders_path
 	end
 

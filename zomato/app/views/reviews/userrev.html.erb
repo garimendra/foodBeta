@@ -35,7 +35,7 @@
 	<%= link_to "<h5><font color='red'>Delete</font></h5>".html_safe, review_path(rev.id),method: :delete,data: {confirm: "Are you really sure?" } %>
 	</td>
 	<td>
-	<%= link_to "<h5><font color='blue'>Edit</font></h5>".html_safe, edit_review_path(rev.id),method: :delete,data: {confirm: "Are you really sure?" } %>	
+	<%= link_to "<h5><font color='blue'>Edit</font></h5>".html_safe, edit_review_path(rev.id) %>	
 	</td>
 	</tr>
 </table>

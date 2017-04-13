@@ -28,10 +28,17 @@ class ReviewsController < ApplicationController
 	end
 
 	def update
+		if @rev.update(rev_params)
+			flash[:success]= "Review updated"
+			redirect_to user_reviews_path
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
-		
+		@rev.destroy
+		redirect_to user_reviews_path
 	end
 
 	def userrev
