@@ -25,6 +25,7 @@ class ReviewsController < ApplicationController
 	end
 
 	def edit
+		@restid=@rev.restaurant_id
 	end
 
 	def update
