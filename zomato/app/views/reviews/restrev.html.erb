@@ -5,36 +5,40 @@
 <div style="overflow:scroll; height:500px;width:auto;display:inline-block;padding: 20px;">
 <br>
 <br>
-<% @fin.each do |rev,user| %>
-<table>
-<tr>
-	<td>
-		User
-	</td>
-	<td>
-		<%=user %>
-	</td>
-</tr>
-<tr>
-	<td>
-		Ratings
-	</td>
-	<td>
-		<%=rev.rating %>
-	</td>
-</tr>
-<tr>
-	<td>
-		Comments
-	</td>
-	<td>
-		<%=rev.comments %>
-	</td>
-</tr>		
-<%end%>
-</table>
-</div>
-</div>
+<% if @fin.size==0 %>
+	<h2>Oops There are No Reviews Yet!!</h2>
+<% else %>
+	<% @fin.each do |rev,user| %>
+	<table>
+	<tr>
+		<td>
+			User
+		</td>
+		<td>
+			<%=user %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Ratings
+		</td>
+		<td>
+			<%=rev.rating %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Comments
+		</td>
+		<td>
+			<%=rev.comments %>
+		</td>
+	</tr>		
+	<%end%>
+	</table>
+	</div>
+	</div>
+<% end %>
 
 <div align="middle">
 <%= link_to "<h3><font color='black'>Back</font></h3>".html_safe,:controller => 'restaurants',:action=> 'show',:id=>@rest.id %>
