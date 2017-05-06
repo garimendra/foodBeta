@@ -1,48 +1,52 @@
 <div align="middle">
-<h2 style="color: white;">YOUR PAST ORDERS</h2>
-<div style="overflow:scroll; height:500px;width:auto;display:inline-block;padding: 20px;">
-<% @fin.each do |ord,res| %>
-<table>
-<tr>
-	<td>
-		Delivery Address
-	</td>
-	<td>
-		<%= ord.address %>
-	</td>
-</tr>
-<tr>	
-	<td>
-	Restaurant Name
-	</td>
-	<td>
-	<%= res %>
-	</td>
-</tr>
-<tr>	
-	<td>
-	Order Details
-	</td>
-	<td >
-	<%= ord.orderDeatils %>
-	</td>
-</tr>	
-<tr>
-	<td>
-	Net Cost
-	</td>
-	<td>
-	<%= ord.cost %>
-	</td>
-</tr>
-<tr>
-	<td colspan=2 style="text-align: center;">
-		<%= link_to "<h5><font color='Red'>Delete</font></h5>".html_safe, order_path(ord.id),method: :delete,data: {confirm: "Are you really sure?" } %>
-	</td>
-</tr>
-</table>
+<% if @fin.size==0 %>
+	<h2>You haven't ordered any thing yet!!</h2>
+<% else %>
+	<h2 style="color: white;">YOUR PAST ORDERS</h2>
+	<div style="overflow:scroll; height:500px;width:auto;display:inline-block;padding: 20px;">
+	<% @fin.each do |ord,res| %>
+	<table>
+	<tr>
+		<td>
+			Delivery Address
+		</td>
+		<td>
+			<%= ord.address %>
+		</td>
+	</tr>
+	<tr>	
+		<td>
+		Restaurant Name
+		</td>
+		<td>
+		<%= res %>
+		</td>
+	</tr>
+	<tr>	
+		<td>
+		Order Details
+		</td>
+		<td >
+		<%= ord.orderDeatils %>
+		</td>
+	</tr>	
+	<tr>
+		<td>
+		Net Cost
+		</td>
+		<td>
+		<%= ord.cost %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2 style="text-align: center;">
+			<%= link_to "<h5><font color='Red'>Delete</font></h5>".html_safe, order_path(ord.id),method: :delete,data: {confirm: "Are you really sure?" } %>
+		</td>
+	</tr>
+	</table>
+	<% end %>
+	</div>
 <% end %>
-</div>
 <div align="middle">
 <%= link_to "<h3><font color='black'>Back</font></h3>".html_safe,root_path %>
 </div>

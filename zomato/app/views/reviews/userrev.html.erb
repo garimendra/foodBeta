@@ -1,48 +1,52 @@
 <div align="middle">
-<div  style="color: white;">
-<h2>Your Reviews</h2>
-</div>
-<br>
-<div style="overflow:scroll; height:500px;width:auto;display:inline-block;padding: 20px;">
-<% @fin.each do |rev,res| %>
-<table>
-	<tr>
+<% if @fin.size ==0 %>
+	<h2>Seems Like You Haven't Reviewed Any Restaurant Yet!!</h2>
+<% else	%>
+	<div  style="color: white;">
+	<h2>Your Reviews</h2>
+	</div>
+	<br>
+	<div style="overflow:scroll; height:500px;width:auto;display:inline-block;padding: 20px;">
+	<% @fin.each do |rev,res| %>
+	<table>
+		<tr>
+			<td>
+			Restaurant
+			</td>
+			<td>
+			<%= res %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Ratings
+			</td>
+			<td>
+			<%= rev.rating %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Comments
+			</td>
+			<td>
+			<%= rev.comments %>
+			</td>
+		</tr>
+		<tr style="text-align: center;">
 		<td>
-		Restaurant
+		<%= link_to "<h5><font color='red'>Delete</font></h5>".html_safe, review_path(rev.id),method: :delete,data: {confirm: "Are you really sure?" } %>
 		</td>
 		<td>
-		<%= res %>
+		<%= link_to "<h5><font color='blue'>Edit</font></h5>".html_safe, edit_review_path(rev.id) %>	
 		</td>
-	</tr>
-	<tr>
-		<td>
-		Ratings
-		</td>
-		<td>
-		<%= rev.rating %>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		Comments
-		</td>
-		<td>
-		<%= rev.comments %>
-		</td>
-	</tr>
-	<tr style="text-align: center;">
-	<td>
-	<%= link_to "<h5><font color='red'>Delete</font></h5>".html_safe, review_path(rev.id),method: :delete,data: {confirm: "Are you really sure?" } %>
-	</td>
-	<td>
-	<%= link_to "<h5><font color='blue'>Edit</font></h5>".html_safe, edit_review_path(rev.id) %>	
-	</td>
-	</tr>
-</table>
+		</tr>
+	</table>
 
 
-<%end%>
-</div>
+	<%end%>
+	</div>
+<%end %>
 <div align="middle">
 <%= link_to "<h3><font color='black'>Back</font></h3>".html_safe,root_path %>
 </div>
